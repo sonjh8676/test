@@ -236,7 +236,7 @@ class EDA:
         ])
 
     
-       # 2. 데이터셋 설명
+       # 1. 기초통계
         with tabs[0]:
             st.header("🔍 기초 통계")
             st.markdown(f"""
@@ -273,7 +273,7 @@ class EDA:
             st.dataframe(df.head())
 
 
-        # 3. 연도별 전체 인구 추이 분석
+        # 2. 연도별 추이
         with tabs[1]:
             st.header("🕒 연도별 전체 인구 추이 분석")
             # '전국' 지역만 필터링
@@ -312,7 +312,7 @@ class EDA:
             st.pyplot(fig)
             st.markdown(f"**Projected population in {target_year}: {int(predicted_population):,}**")
 
-        # 4. 지역별 인구 변화량 순위 분석
+        # 3. 지역별 인구 변화량 순위 분석
         with tabs[2]:
             st.header("🕒 지역별 인구 변화량 순위 분석")
             st.markdown("지역별 인구 변화량의 순위를 분석합니다.  ")
@@ -405,7 +405,7 @@ class EDA:
             - Sejong shows the highest population growth rate, while many rural regions face consistent shrinkage.
             """)
 
-        # 5. 시각화
+        # 4. 시각화
         with tabs[3]:
             st.header("🧮 증감률 상위 지역 및 연도 도출")
 

@@ -506,24 +506,7 @@ class EDA:
             > - 오른쪽 범례를 통해 지역 이름(영문 표기)을 확인할 수 있습니다.  
             """)
 
-        # 7. 이상치 제거
-        with tabs[6]:
-            st.header("🚫 이상치 제거")
-            # 평균·표준편차 계산
-            mean_count = df['count'].mean()
-            std_count = df['count'].std()
-            # 상한치: 평균 + 3*표준편차
-            upper = mean_count + 3 * std_count
-
-            st.markdown(f"""
-                        - **평균(count)**: {mean_count:.2f}  
-                        - **표준편차(count)**: {std_count:.2f}  
-                        - **이상치 기준**: `count` > 평균 + 3×표준편차 = {upper:.2f}  
-                          (통계학의 68-95-99.7 법칙(Empirical rule)에 따라 평균에서 3σ를 벗어나는 관측치는 전체의 약 0.3%로 극단치로 간주)
-                        """)
-            df_no = df[df['count'] <= upper]
-            st.write(f"- 이상치 제거 전: {df.shape[0]}개, 제거 후: {df_no.shape[0]}개")
-
+    
 
 
 # ---------------------

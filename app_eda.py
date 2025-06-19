@@ -205,7 +205,7 @@ class EDA:
             st.info("train.csv 파일을 업로드 해주세요.")
             return
 
-        df = pd.read_csv(uploaded, parse_dates=['datetime'])
+        df = pd.read_csv(uploaded)
 
          # 1. '세종' 지역의 '-' 값을 0으로 치환
         sejong_mask = df['행정구역'].str.contains('세종', na=False)
@@ -228,14 +228,11 @@ class EDA:
         st.dataframe(df.describe())
 
         tabs = st.tabs([
-            "1. 목적 & 절차",
-            "2. 데이터셋 설명",
-            "3. 데이터 로드 & 품질 체크",
-            "4. Datetime 특성 추출",
-            "5. 시각화",
-            "6. 상관관계 분석",
-            "7. 이상치 제거",
-            "8. 로그 변환"
+            "1. 기초 통계",
+            "2. 연도별 추이",
+            "3. 지역별 분석",
+            "4. 변화량 분석",
+            "5. 시각화"
         ])
 
         # 1. 목적 & 분석 절차
